@@ -1,0 +1,50 @@
+{
+  "2025": {
+    "full": {
+      "relative_path": "pretrained/2025/full.txt",
+      "bytes": 29482191,
+      "sha256": "e7dd8eadf64b1fe14971d68008da4294a7bfc19ccb173d61fe7d520b3fc11703",
+      "trees": 1575,
+      "features": 95
+    },
+    "evaluation": {
+      "relative_path": "pretrained/2025/evaluation.txt",
+      "bytes": 29239510,
+      "sha256": "179a1e0028b728109ec213abf95dae9df4c5b26a2c1477351957b61d69ec0881",
+      "trees": 1575,
+      "features": 95
+    }
+  },
+  "2026-february": {
+    "full": {
+      "relative_path": "pretrained/2026-february/full.txt",
+      "bytes": 61489532,
+      "sha256": "0f7d986a3c8ce76e40464ab125db353e32e277ab058ae5dab51340b10595d536",
+      "trees": 2460,
+      "features": 95
+    },
+    "evaluation": {
+      "relative_path": "pretrained/2026-february/evaluation.txt",
+      "bytes": 60720920,
+      "sha256": "754e75fc4a99adfa95ed02411af2d453698dfb07605f3f2a614b4c372b141329",
+      "trees": 2460,
+      "features": 95
+    }
+  },
+  "2026-july": {
+    "full": {
+      "relative_path": "pretrained/2026-july/full.txt",
+      "bytes": 60848000,
+      "sha256": "0f78d1811cf35317b1080c9a276749db557e25748fd5c989efc408c7cef64c3f",
+      "trees": 2460,
+      "features": 95
+    },
+    "evaluation": {
+      "relative_path": "pretrained/2026-july/evaluation.txt",
+      "bytes": 61093719,
+      "sha256": "a6a7999e54d20b66da7301ac733948acabdc6008bf34ce720403b67969013330",
+      "trees": 2460,
+      "features": 95
+    }
+  }
+}
