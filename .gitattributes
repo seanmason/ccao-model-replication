@@ -1,0 +1,2 @@
+pretrained/*/*.txt filter=lfs diff=lfs merge=lfs -text
+pretrained/*/*.rds filter=lfs diff=lfs merge=lfs -text
