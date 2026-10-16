@@ -44,8 +44,9 @@ def predict(version, input_path, output_path, variant="full", threads=4):
         raise ArithmeticError("Nonfinite model predictions")
     out = frame.copy()
     out["pred_initial_model_output"] = raw
-    # All six saved recovered models were trained on log sale price.
-    out["pred_initial_fmv_dollars"] = np.exp(raw)
+    # All six recovered models were trained against dollar-scale prices.
+    # Do NOT exponentiate: native LightGBM predictions are already dollars.
+    out["pred_initial_fmv_dollars"] = raw
     dest = Path(output_path)
     dest.parent.mkdir(parents=True, exist_ok=True)
     if dest.suffix == ".parquet":
