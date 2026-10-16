@@ -10,3 +10,8 @@ ccao_2026/runs/*/upstream/input/*.parquet
 ccao_2025/results/*.parquet
 ccao_2026/runs/*/results/*.parquet
 ccao_2026/combined_assessment_comparison.parquet
+
+# Isolated downloads and training workspaces
+work/
+__pycache__/
+.pytest_cache/
