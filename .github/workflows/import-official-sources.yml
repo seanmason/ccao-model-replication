@@ -1,0 +1,41 @@
+name: Import pinned official CCAO source
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/import-official-sources.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Import official residential AVM source at pinned commits
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p upstream
+          for pair in "2025:f292e7b3a31cd01df5950b3b6bc54e848666a33c" "2026:39f112d8e194c008c93bd985aaf39a99c64c02e9"; do
+            year="${pair%%:*}"
+            sha="${pair#*:}"
+            temp="$(mktemp -d)"
+            git clone --quiet --filter=blob:none https://github.com/ccao-data/model-res-avm.git "$temp"
+            git -C "$temp" checkout --quiet "$sha"
+            mkdir -p "upstream/$year"
+            tar -C "$temp" --exclude=.git --exclude=output --exclude=input --exclude=.github --exclude=.dvc --exclude=renv/library -cf - . | tar -C "upstream/$year" -xf -
+            rm -rf "$temp"
+            printf "%s\n" "$sha" > "upstream/$year/PINNED_COMMIT"
+          done
+          git add upstream/
+          if ! git diff --cached --quiet; then
+            git commit -m "Vendor pinned official CCAO 2025 and 2026 residential AVM source"
+            git push origin HEAD:main
+          fi
