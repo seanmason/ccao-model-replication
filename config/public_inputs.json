@@ -1,0 +1,80 @@
+{
+  "2025": [
+    {
+      "name": "training_data.parquet",
+      "bytes": 205524817,
+      "sha256": "3c29e95566678c6297ad761fe7a19917200d1ada24a27add66b63fd88db17006",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2025/training_data.parquet"
+    },
+    {
+      "name": "assessment_data.parquet",
+      "bytes": 420008988,
+      "sha256": "64f1d81ea8309c9f6cb892e7a0a8c81264bc44bfae9e5d43554d5da47598eb54",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2025/assessment_data.parquet"
+    },
+    {
+      "name": "complex_id_data.parquet",
+      "bytes": 709841,
+      "sha256": "473b09337e2e228dbf41497e8899127908af4b8324d74221628db0028ae5f18c",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2025/complex_id_data.parquet"
+    },
+    {
+      "name": "land_nbhd_rate_data.parquet",
+      "bytes": 6019,
+      "sha256": "2f2b10459128d4c8154241704240a38733ef01ecdc78719add436a42ca41fb90",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2025/land_nbhd_rate_data.parquet"
+    }
+  ],
+  "2026-february": [
+    {
+      "name": "training_data.parquet",
+      "bytes": 197666751,
+      "sha256": "8640e63ce860a8bde11daebb7b0c828402922b121ce6d720f8fe5e0e53c39259",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-02-11-recursing-rob/training_data.parquet"
+    },
+    {
+      "name": "assessment_data.parquet",
+      "bytes": 417299843,
+      "sha256": "5e3055d646252afd685b4f17159b93f652afe331e174816658d257ca88534f51",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-02-11-recursing-rob/assessment_data.parquet"
+    },
+    {
+      "name": "complex_id_data.parquet",
+      "bytes": 702256,
+      "sha256": "33d7b6a5c638086e128134642f3259ab0d10f6a3f66f13aac27f41d2a22b8179",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-02-11-recursing-rob/complex_id_data.parquet"
+    },
+    {
+      "name": "land_nbhd_rate_data.parquet",
+      "bytes": 5709,
+      "sha256": "7d2c48a25e08b13580a3c9f87e26c434967f217dc2c7245a0f12187381946cf",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-02-11-recursing-rob/land_nbhd_rate_data.parquet"
+    }
+  ],
+  "2026-july": [
+    {
+      "name": "training_data.parquet",
+      "bytes": 200667891,
+      "sha256": "5ceefe717272af105ada93386838b2c6fe24282a44dffe2f8bb80abd41fab537",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-07-30-ecstatic-carly/training_data.parquet"
+    },
+    {
+      "name": "assessment_data.parquet",
+      "bytes": 427878772,
+      "sha256": "104324201da448606703260dd2296e9d0b13e7c2354e31d06b9740e6f840113d",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-07-30-ecstatic-carly/assessment_data.parquet"
+    },
+    {
+      "name": "complex_id_data.parquet",
+      "bytes": 696352,
+      "sha256": "663c347ef0a35b84f7e725f5d9d9b4f7496442e7a152e8d779526f56ec3ed",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-07-30-ecstatic-carly/complex_id_data.parquet"
+    },
+    {
+      "name": "land_nbhd_rate_data.parquet",
+      "bytes": 5842,
+      "sha256": "f7a406b6bd89d40171b76044da71a7870e29b59b7972f6d4cd905e5e7b8d9d12",
+      "url": "https://ccao-data-public-us-east-1.s3.amazonaws.com/models/inputs/res/2026/run_id=2026-07-30-ecstatic-carly/land_nbhd_rate_data.parquet"
+    }
+  ]
+}
