@@ -1,0 +1,30 @@
+name: Repository integrity
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - README.md
+      - scripts/**
+      - config/**
+      - models/MODEL_MANIFEST.json
+      - tests/**
+      - .github/workflows/repository-integrity.yml
+      - upstream/**/PINNED_COMMIT
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  offline-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Compile Python scripts
+        run: python -m compileall -q scripts tests
+      - name: Test source and manifests
+        run: python -m unittest discover -s tests -v
