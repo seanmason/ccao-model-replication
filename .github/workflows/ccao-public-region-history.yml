@@ -1,0 +1,52 @@
+name: Historical CCAO open-data region snapshot
+
+on:
+  push:
+    branches: [research/historical-characteristics-snapshot]
+
+permissions:
+  contents: read
+
+jobs:
+  open-data:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Query public county datasets for an Evanston PIN section sample
+        shell: bash
+        run: |
+          cat > /tmp/open_data.py <<'PY'
+          import json, time, urllib.parse, urllib.request, urllib.error, pathlib
+          dest=pathlib.Path("ccao-public-subset")
+          dest.mkdir(exist_ok=True)
+          # Pull a multi-section Evanston sample, not any named property or private records.
+          where="pin >= '10134090000000' AND pin <= '10134279999999'"
+          datasets=["x54s-btds","bcnq-qi2z","y282-6ig3"]
+          def do_request(dataset):
+              base=f"https://datacatalog.cookcountyil.gov/resource/{dataset}.json"
+              params={"$where":where,"$limit":50000,"$offset":0}
+              req=urllib.request.Request(base+"?"+urllib.parse.urlencode(params),headers={"User-Agent":"CCAO-public-research/1.0","Accept":"application/json"})
+              with urllib.request.urlopen(req,timeout=240) as resp:
+                  return json.loads(resp.read())
+          for ds in datasets:
+              for trial in range(3):
+                  try:
+                      records=do_request(ds)
+                      if not isinstance(records,list):raise TypeError(type(records).__name__)
+                      (dest/(ds+".json")).write_text(json.dumps(records,indent=1))
+                      print(ds,"rows",len(records),"bytes", (dest/(ds+".json")).stat().st_size)
+                      break
+                  except Exception as e:
+                      print(ds,"retrieval problem attempt",trial+1,type(e).__name__,str(e)[:300])
+                      if trial==2:raise
+                      time.sleep(8*(trial+1))
+          PY
+          python /tmp/open_data.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ccao-public-region-history
+          path: ccao-public-subset/
+          retention-days: 1
